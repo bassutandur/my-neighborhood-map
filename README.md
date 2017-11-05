@@ -19,4 +19,4 @@ You can also search for the locations from Search.
 Google Maps and Foursquare API
 
 ## How to Run?
-Download all the files from this repository and run index.html
+Run index.html
