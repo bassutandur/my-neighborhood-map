@@ -1,16 +1,17 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>My Neighborhood Map</title>
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
 
     <script src="js/jquery-3.2.1.min.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyA6vU7E0HoJlJAGBmCQlUvwOsicVp0s5wc&callback=initMap"></script>
     <script src="js/knockout.min.js"></script>
     <script src="js/main.js"></script>
 
@@ -32,6 +33,7 @@
             </div>
         </div>
     </div>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyA6vU7E0HoJlJAGBmCQlUvwOsicVp0s5wc&callback=initMap" onerror="onMapError()"></script>
 </body>
 
 </html>
