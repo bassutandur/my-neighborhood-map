@@ -77,18 +77,23 @@ function addMarker(location) {
 	// Add listener for marker click on Google Maps
 	google.maps.event.addListener(self.marker, "click", function () {
 		console.log(self.response);
-		infowindow.marker = this;
-		var contentStr = "<h6>" + this.title + "</h6>";
-		var addressArr = self.response.location.formattedAddress;
-		for (var i = 0; i < addressArr.length; ++i) {
-			contentStr += "" + addressArr[i] + "</br>";
+		if (infowindow.marker != this) { // Reset other markers icon
+			if (infowindow.marker != null) {
+				infowindow.marker.setIcon('https://maps.gstatic.com/mapfiles/api-3/images/spotlight-poi.png'); //Reset to default icon
+			}
+
+			infowindow.marker = this;
+			var contentStr = "<h6>" + this.title + "</h6>";
+			var addressArr = self.response.location.formattedAddress;
+			for (var i = 0; i < addressArr.length; ++i) {
+				contentStr += "" + addressArr[i] + "</br>";
+			}
+
+			infowindow.setContent('<h6 style="color:coral">' + contentStr + "</h6>");
+			infowindow.marker.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
+
+			infowindow.open(map, this);
 		}
-
-		infowindow.setContent('<h6 style="color:coral">' + contentStr + "</h6>");
-		infowindow.marker.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
-
-		infowindow.open(map, this);
-
 	});
 
 	self.filterMarkers = ko.computed(function () {
@@ -150,3 +155,7 @@ var g_domLoaded = false;
 window.addEventListener("DOMContentLoaded", function () {
 	g_domLoaded = true;
 }, true);
+
+function onMapError() {
+	alert("Error with Google Maps, Please try again later");
+}
