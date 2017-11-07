@@ -1,4 +1,4 @@
-﻿var map;
+var map;
 
 var locations = [];
 
@@ -92,7 +92,7 @@ function addMarker(location) {
 	});
 
 	self.filterMarkers = ko.computed(function () {
-		if (self.visible() == true) {
+		if (self.visible() === true) {
 			self.marker.setVisible(true);
 		} else {
 			self.marker.setVisible(false);
@@ -103,7 +103,7 @@ function addMarker(location) {
 function initMap() {
 	infowindow = new google.maps.InfoWindow({ content: "" });
 	//Initialize only when DOM is loaded, otherwise wait for few seconds before attempting initialization
-	if (g_domLoaded == true) {
+	if (g_domLoaded === true) {
 		initialize();
 		ko.applyBindings(new ViewModel());
 	}
@@ -143,7 +143,7 @@ function ViewModel() {
 		});
 		return self.markersArray();
 	}, self);
-};
+}
 
 //Add listener for DOMContentLoaded, set g_domLoaded flag true
 var g_domLoaded = false;
