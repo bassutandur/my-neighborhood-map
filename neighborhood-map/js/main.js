@@ -78,7 +78,7 @@ function addMarker(location) {
 	google.maps.event.addListener(self.marker, "click", function () {
 		console.log(self.response);
 		if (infowindow.marker != this) { // Reset other markers icon
-			if (infowindow.marker != null) {
+			if (infowindow.marker !== null) {
 				infowindow.marker.setIcon('https://maps.gstatic.com/mapfiles/api-3/images/spotlight-poi.png'); //Reset to default icon
 			}
 
